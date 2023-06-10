@@ -2,7 +2,7 @@ const usermodel = require("../schemas/user");
 
 const getusers = async (req, res, next) => {
   try {
-    const users = await usermodel.find().select(["-password", "-_v"]);
+    const users = await usermodel.find();
     if (users.length === 0) {
       return res.status(404).send("no users found");
     }
